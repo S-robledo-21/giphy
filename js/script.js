@@ -31,9 +31,10 @@ let userinput=$(".search-term").val();
     })
     //step2
     .then(function (json) {
-      let urlForJson = json.data[0].images.original.url;
+    let randomNumber=Math.ceil(Math.random()*json.data.length);
+      let urlForJson = json.data[randomNumber].images.original.url;
       console.log(urlForJson);
-      $(".display").append(`<img src=${urlForJson}/>`);
+      $(".display").html(`<img src=${urlForJson}/>`);
 
       return urlForJson;
     });
